@@ -1,7 +1,7 @@
 #include "rclcpp/rclcpp.hpp"
 
 #include <algorithm>
-#include <memroy>
+#include <memory>
 #include <vector>
 
 int main(int argc, char**argv) {
@@ -11,6 +11,6 @@ int main(int argc, char**argv) {
     RCLCPP_INFO(node->get_logger(), "你好， C++ 节点");
     rclcpp::spin(node);
     rclcpp::shutdown();
-
+    
     return 0;
 }

@@ -1,0 +1,19 @@
+    {
+        "configurations": [
+            {
+                "name": "Linux", // 配置名称（可自定义）
+                "includePath": [
+                    "${workspaceFolder}/**", // 项目根目录及其子目录
+                    "/opt/ros/humble/include", // ROS 2 头文件路径（替换为你的版本）
+                    "/usr/include/c++/11", // C++ 标准库路径（根据编译器版本调整）
+                    "/usr/include/**"
+                ],
+                "defines": [],
+                "compilerPath": "/usr/bin/g++", // 编译器路径
+                "cStandard": "c17",
+                "cppStandard": "c++17",
+                "intelliSenseMode": "linux-clang-x64" // 智能感知模式
+            }
+        ],
+        "version": 4
+    }
