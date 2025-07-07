@@ -80,3 +80,9 @@ sudo apt install *gtk4 : 在英文版Ubuntu22.04上，解决安装chrome之后�
     sudo apt install -y git
     sudo apt install -y code 
     sudo apt install -y curl
+
+# 4 安装zsh后shell历史命令不能连续展现
+
+在终端中运行 cat -v，然后按方向键，确认输出的序列是否为 `^[[A`（向上）和 `^[[B`（向下）。
+
+git clone https://github.com/zsh-users/zsh-history-substring-search.git ~/.zsh/plugins/zsh-history-substring-search
