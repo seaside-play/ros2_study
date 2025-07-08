@@ -1,2 +1,5 @@
 build/
 .cache/
+**install/
+**log/
+**build/
