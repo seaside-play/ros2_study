@@ -13,6 +13,9 @@ src_arcs_pdb=${src_dir}/ARCS.pdb
 src_so=${src_dir}/libarcs_rtt_xenomai.so
 src_so_pdb=${src_dir}/libarcs_rtt_xenomai.so.pdb
 
+formmatted_date=$(date +%y%m%d)
+version="2.6.6.$formmatted_date"_rc
+
 PrintMd5() {
   if [ -e $1 ]; then 
     current_md5=$(md5sum "$1" | awk '{print $1}')
@@ -55,9 +58,6 @@ UpdateFiles() {
 MakePackage() {
   echo "-->MakePackage"
   cd $dst_upgrade_folder/upgrade/Command
-
-  formmatted_date=$(date +%y%m%d)
-  version="2.6.6.$formmatted_date"_rc
   ./make_package.sh -all $version $version
   echo "<--MakePackage"
 }
@@ -83,16 +83,18 @@ CopyPDB() {
   echo "<--CopyPDB"
 }
 
+ZipInstall() {
+  echo "-->ZipInstall"
+  install_dir=$dst_upgrade_folder/upgrade
+  cd $install_dir
+  zip -r9 $version.zip install/
+  echo "<--ZipInstall"
+}
+
 PrintMd5 $src_arcs
 PrintMd5 $src_so
 
 UpdateFiles
 MakePackage
 CopyPDB
-
-# echo ${src_dir}
-# echo ${ARCS}
-# echo ${ARCS_PDB}
-# echo ${SO}
-# echo ${SO_PDB}
-
+ZipInstall
