@@ -11,12 +11,12 @@ find_package(ament_cmake REQUIRED)
 # further dependencies manually.
 # find_package(<dependency> REQUIRED)
 
-find_package(rclcpp REQUIRED)
-add_executable(cpp_node src/cpp_node.cpp)
-ament_target_dependencies(cpp_node rclcpp)
-install(TARGETS
-cpp_node
-DESTINATION lib/${PROJECT_NAME}
+find_package(rclcpp REQUIRED) # 系统帮忙茶渣rclcpp库文件
+add_executable(cpp_node src/cpp_node.cpp) # 生成可执行文件cpp_node，
+ament_target_dependencies(cpp_node rclcpp) # 为可执行文件添加实质性的动态库引用
+install(TARGETS # 添加安装的目标节点的起始标识
+cpp_node # 添加具体的目标节点
+DESTINATION lib/${PROJECT_NAME} # 将目标节点安装到目的位置，此处的${PROJECT_NAME}就是demo_cpp_node字符串
 )
 
 if(BUILD_TESTING)
