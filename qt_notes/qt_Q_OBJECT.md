@@ -53,3 +53,65 @@
 如果忘记运行 moc 或手动修改了 moc 生成的文件，会导致链接错误（如 undefined reference to vtable for MyClass）。
 4. Qt Quick/QML 兼容性
 对于 Qt Quick 应用，使用 Q_OBJECT 的类需要注册到 QML 环境中才能被 JavaScript 访问。
+
+# 4 示例：信号与槽的实现
+
+假设我们有以下类：
+
+    // myclass.h
+    class MyClass : public QObject
+    {
+        Q_OBJECT
+
+    public:
+        explicit MyClass(QObject *parent = nullptr);
+
+    signals:
+        void valueChanged(int newValue);
+
+    public slots:
+        void setValue(int value);
+    };
+
+    // myclass.cpp
+    #include "myclass.h"
+
+    MyClass::MyClass(QObject *parent) : QObject(parent) {}
+
+    void MyClass::setValue(int value)
+    {
+        emit valueChanged(value);  // 触发信号
+    }
+
+
+moc 生成的代码会包含类似以下的元对象信息：
+
+
+    // moc_myclass.cpp (简化版)
+    static const QMetaObject staticMetaObject = {
+        { &QObject::staticMetaObject, qt_meta_stringdata_MyClass.data,
+        qt_meta_data_MyClass, 0 }
+    };
+
+    // 信号与槽的映射表
+    const QMetaObject *MyClass::metaObject() const
+    {
+        return &staticMetaObject;
+    }
+    
+
+    // 信号发射实现
+    void MyClass::valueChanged(int _t1)
+    {
+        void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
+        QMetaObject::activate(this, &staticMetaObject, 0, _a);
+    }
+
+# 5 常见错误
+- undefined reference to vtable：忘记运行 moc 或未将 moc 生成的文件添加到项目中。
+- 信号槽不工作：类未包含 Q_OBJECT 或未正确继承 QObject。
+- 编译错误：在 .cpp 文件中定义信号 / 槽而不是 .h 文件。
+
+
+# 6 总结
+Q_OBJECT 是 Qt 元对象系统的核心，它通过`宏`和` moc 工具`实现了 C++ 的扩展功能（如`信号槽`、`反射`）。任何使用 Qt 高级特性的类都必须包含这个宏，否则相关功能将无法正常工作。

@@ -86,6 +86,13 @@ sudo chown -R chris:chris ./examples/ 将所有的子文件夹的拥有者都改
 
 sudo cp /usr/lib/x86_64-linux-gnu/qt5/plugins/platforminputcontexts/libfcitxplatforminputcontextplugin.so  /home/chris/qtcreator-11.0.3/lib/Qt/plugins/platforminputcontexts
 
+sudo cp /usr/lib/x86_64-linux-gnu/qt5/plugins/platforminputcontexts/libfcitxplatforminputcontextplugin.so  /home/chris/qtcreator-11.0.3/lib/qtcreator/plugins
+
+sudo cp /usr/lib/x86_64-linux-gnu/qt5/plugins/platforminputcontexts/libfcitxplatforminputcontextplugin.so
+ /usr/local/Qt-5.15.12/plugins/platforminputcontexts
+
+插件路径可通过 qmake -query QT_INSTALL_PLUGINS 查询。
+
 依然无法解决
 
 ## 1.5.3 继续排查
