@@ -108,3 +108,11 @@
 
   - 使用Dockerfile适合于临时验证某种方案，或临时使用某一中Demo运行的场景，其重点是临时性，实验性和验证性；
   - 若是自己长期使用特定容器环境下，一般不需要使用Dockerfile，直接在容器上不断使用就可以，容器是有运行和停止状态的。
+
+- 如何将本地文件copy到容器中
+
+      docker cp [选项] 本地路径 容器名或ID:容器内路径
+      docker cp /home/user/test.txt my-ubuntu22:/tmp/
+      
+      docker cp [选项] 容器名或ID:容器内路径 本地路径       # 或从容器复制到本地：
+      docker cp my-ubuntu22:/etc/hosts /home/user/hosts_backup

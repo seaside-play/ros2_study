@@ -30,11 +30,6 @@ UpdateFiles() {
 
   for dir in ${dst_dir}/*/; do
     if [ -d "$dir" ]; then
-      # 可过滤掉路径中包含有CB30I的文件夹，这里只是对特殊情况的考虑，二代柜不存在这样的情况
-      # if [[ "$dir" == *"CB30I"* ]]; then
-      #   echo "Filte the CB30I"
-      #   continue
-      # fi
       dst_so="$dir"Libraries/libarcs_rtt_xenomai.so
       if [ -e "$dst_so" ]; then
         cp -f "$src_so" "$dst_so"
