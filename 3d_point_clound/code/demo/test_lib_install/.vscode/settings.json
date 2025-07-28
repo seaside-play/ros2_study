@@ -1,0 +1,100 @@
+{
+  "files.exclude": {
+    // 排除文件和文件夹,使它们在资源管理器中不可见
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/.metadata": true,
+    // "**/.cache": true,
+    "**/build": true,
+    "**/Install": true,
+    "**/build_test": true,
+    "**/build_debug": true,
+    "**/build_release": true,
+    "**/build_release_g": true,
+    "**/build_cross": true,
+    "**/build_xenomai": true,
+    "**/build_xenomai_debug": true,
+    "**/build_xenomai_release": true,
+    "**/build_xenomai_release_1142": true,
+    "**/build_xenomai_debug_1142": true,
+    "**/build_feature_melsec_debug": true,
+    "**/build_feature_melsec_joint_debugging": true,
+    "**/build_feature_melsec_release": true,
+    "**/build_release_1142": true,
+    "**/build_debug_1142": true,
+    "**/build_test2": true,
+    "**/build_temp": true,
+    "**/plugin_example": true,
+    "**/temp": true,
+    "**/test_arm_crash": true,
+    "**/.cache": true,
+    "**/.clang-format": true,
+    "**/archiver/script/deepintemp/**": true,
+    "**/.VSCodeCounter/**": true,
+    // "**/tests/**": true,
+    "**/build_feature_eip_mc/**": true,
+    "**/build_feature_melsec/**": true,
+    "**/build_debug_socket": true,
+    "**/build_arm_release": true,
+    "**/build_fix_loss_package": true,
+    "**/build_analyse_cmake": true,
+    "**/build_fix_loss_package_arm": true,
+    "**/build_master": true,
+    "**/master_arm_build_asan": true,
+    "**/master_arm_build": true,
+    "**/armbuild": true,
+    "**/armbuild_test": true,
+    "**/master_gnulinux_build": true,
+    "**/.project": true,
+    "**/.autotools": true,
+    "**/build_master_debug": true
+  },
+  "search.exclude": {
+    // 排除文件和文件夹,使它们不在搜索结果中不可见
+    // "**/node_modules": true,
+    // "**/bower_components": true,
+    "**/.git": true,
+    "**/build": true,
+    "**/build_xenomai": true,
+    "**/build_xenomai_debug": true,
+    "**/build_xenomai_release": true,
+    "**/plugin_example": true,
+
+    "**/build_cross": true,
+    "**/build_debug": true,
+    "**/build_debug_socket": true
+  },
+  "clangd.arguments": [
+    "--background-index=false",
+    "--log=error",
+    "--header-insertion=never",
+    "--clang-tidy",
+    "--cross-file-rename=true",
+    "--pch-storage=memory",
+    // "--compile-commands-dir=/home/ae/workspace/code/baseline/develop/newARCS/build"
+    //"--compile-commands-dir=${workspaceFolder}/build"
+    "--compile-commands-dir=${workspaceFolder}/build"
+    // "--compile-commands-dir=${workspaceFolder}/build_feature_melsec_joint_debugging"
+    // "--compile-commands-dir=${workspaceFolder}/build_test"
+    // "--compile-commands-dir=${workspaceFolder}/build_test/develop_release"
+  ],
+  "clangd.path": "/usr/bin/clangd-14",
+  // "C_Cpp.default.compileCommands": "/home/ae/workspace/code/newARCS/build/compile_commands.json",
+  "clangd.syncFileEvents": true,
+  "C_Cpp.intelliSenseEngine": "disabled",
+  "C_Cpp.autocomplete": "disabled",
+  "files.associations": {
+    "iostream": "cpp"
+  },
+  "files.autoSaveDelay": 1000,
+  "files.autoSave": "afterDelay",
+  "files.maxMemoryForLargeFilesMB": 4096,
+  "editor.tabSize": 4,
+  "editor.insertSpaces": true,
+  "markdown.preview.fontSize": 18,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true
+}
