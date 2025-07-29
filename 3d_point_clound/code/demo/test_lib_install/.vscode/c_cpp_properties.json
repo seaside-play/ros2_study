@@ -1,0 +1,22 @@
+{
+  
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "/usr/include",
+                "/usr/include/i386-linux-gnu/c++/4.8/**",
+                "/usr/include/i386-linux-gnu/c++/4.8/bits/**",
+                "/usr/include/i386-linux-gnu/c++/4.8/ext/**",
+                "/usr/include/i386-linux-gnu/sys/**"
+            ],
+            "defines": [],
+            "compilerPath": "/usr/bin/gcc",
+            "cStandard": "c11",
+            "cppStandard": "c++14",
+            "intelliSenseMode": "clang-x64"
+        }
+    ],
+    "version": 4
+}

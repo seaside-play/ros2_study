@@ -56,3 +56,16 @@
         # 添加可执行文件
         add_executable(test_pcl main.cpp)
         target_link_libraries(test_pcl ${PCL_LIBRARIES})
+
+# 3 包含头文件
+
+        vim ~/.bashrc
+        # 自定义Boost版本在 /usr/local/boost/1.50.0,去掉就可实现boost1.71.1
+        export BOOST_ROOT=/usr/local/boost/1.50.0
+        export CPLUS_INCLUDE_PATH=$BOOST_ROOT/include:$CPLUS_INCLUDE_PATH  # 头文件路径
+        export LIBRARY_PATH=$BOOST_ROOT/lib:$LIBRARY_PATH                # 静态库搜索路径
+        export LD_LIBRARY_PATH=$BOOST_ROOT/lib:$LD_LIBRARY_PATH        # 动态库搜索路径
+
+        仿照boost库的写法添加pcl库：
+        export PCL_ROOT=/usr/include/pcl-1.12
+        export CPLUS_INCLUDE_PATH=$PCL_ROOT:$CPLUS_INCLUDE_PATH

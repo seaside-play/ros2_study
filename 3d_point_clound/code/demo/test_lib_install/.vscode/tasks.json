@@ -1,0 +1,44 @@
+{  
+    "version": "2.0.0",  
+    "tasks": [  
+        {  
+            "label": "build",  
+            "type": "shell",  
+            "command": "/usr/bin/g++",  
+            "args": [  
+                "-g",  
+                "${file}",  
+                "-o",  
+                "${fileDirname}/${fileBasenameNoExtension}",  
+                "-std=c++14",  
+                // "-I/usr/include",
+                // "-I/usr/local/include",
+                // "-I./src/train",
+                "-I/usr/include/eigen",
+                "-I./src/include",
+                // "./src/train/*.cc",
+                // "-I./src/task",
+                "./src/*.cpp",
+                "-I/usr/include/pcl-1.12",
+                "-I/usr/include/vtk-9.1",
+                // "-L/usr/local/lib",
+                // "-lboost_filesystem", 
+                // "-lboost_system", 
+                "-lpcl_common",
+                "-lpcl_io",
+                
+                "-lpcl_search",
+                "-lpcl_filters",
+                "-lvtkCommonCore-9.1",
+                "-lvtkCommonDataModel-9.1"
+                // "-lsqlite3",
+                // "-lpthread" // 注意这里应该是 -lpthread 而不是 -lthreads  
+            ],  
+            "group": {  
+                "kind": "build",  
+                "isDefault": true  
+            },  
+            "problemMatcher": ["$gcc"]  
+        }  
+    ]  
+}

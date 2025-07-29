@@ -1,0 +1,71 @@
+{  
+    "version": "0.2.0",  
+    "configurations": [  
+        {  
+            "name": "(gdb) Launch",  // 配置名称，在调试列表中显示
+            "type": "cppdbg",  // 调试类型，这里使用cppdbg cpp debug，不是release哦
+            "request": "launch",  // 请求类型，使用`launch`表示启动调试会话
+            "program": "${workspaceFolder}/${fileBasenameNoExtension}", // 假设可执行文件与源文件在同一目录下  
+            "args": [ // 
+                "-g",
+                "${file}",
+                "-o",
+                "${fileDirname}/${fileBasenameNoExtension}",
+                "-std=c++14",
+                // "-I/usr/include",
+                // "-I./src/train",
+                "-I./include",
+                // "-L/usr/local/lib",
+                // "-lboost_filesystem", 
+                // "-lboost_system", 
+                // "-lpthread"
+            ],  
+            "stopAtEntry": false,  // 是否在程序的入口处停下来
+            "cwd": "${workspaceFolder}",  // 程序的工作目录
+            "environment": [],  // 程序的环境变量
+            "externalConsole": false,  
+            "MIMode": "gdb",  // 指定调试器
+            "setupCommands": [  // 调试器的初始化命令
+                {  
+                    "description": "Enable pretty-printing for gdb",  
+                    "text": "-enable-pretty-printing",  
+                    "ignoreFailures": true  
+                }  
+            ],  
+            "preLaunchTask": "build", // 与 tasks.json 中的 label 匹配  调试之前运行的任务
+            // "console": "externalTerminal"
+        },
+        {  
+            "name": "(gdb) server",  // 配置名称，在调试列表中显示
+            "type": "cppdbg",  // 调试类型，这里使用cppdbg cpp debug，不是release哦
+            "request": "launch",  // 请求类型，使用`launch`表示启动调试会话
+            "program": "${workspaceFolder}/src/tests/${fileBasenameNoExtension}", // 假设可执行文件与源文件在同一目录下  
+            "args": [ // 
+                "-g",
+                "${file}",
+                "-o",
+                "${fileDirname}${fileBasenameNoExtension}",
+                "-std=c++11",
+                "-I/usr/include",
+                "-I./src/train",
+                "-L/usr/local/lib",
+                "-lboost_system",
+                "-lpthread"
+            ],  
+            "stopAtEntry": false,  // 是否在程序的入口处停下来
+            "cwd": "${workspaceFolder}",  // 程序的工作目录
+            "environment": [],  // 程序的环境变量
+            "externalConsole": false,  
+            "MIMode": "gdb",  // 指定调试器
+            "setupCommands": [  // 调试器的初始化命令
+                {  
+                    "description": "Enable pretty-printing for gdb",  
+                    "text": "-enable-pretty-printing",  
+                    "ignoreFailures": true  
+                }  
+            ],  
+            "preLaunchTask": "build", // 与 tasks.json 中的 label 匹配  调试之前运行的任务
+            // "console": "externalTerminal"
+        }  
+    ]
+}
