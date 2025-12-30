@@ -69,4 +69,25 @@ ROS 2的参数支持通过代码进行声明、查询、设置和删除
 
 经常用的是参数的声明和设置
 
+
+        # 声明参数和获取参数
+        self.declare_parameter('face_locations_upsample_times', 1)
+        self.declare_parameter('face_locations_model', "hog")
+        self.upsmaple_times_ = self.get_parameter('face_locations_upsample_times').value
+        self.model_ = self.get_parameter('face_locations_model').value
+
+
 项目：使用参数通信机制，将人脸检测服务中的**采样次数和检测模型进行参数化**。
+
+启动节点后，通过ros2 param list 可以查看参数列表，之后通过
+
+ros2 param set /face_detection_node face_location_model cnn
+---
+Set parameter successful
+
+还可以通过在启动节点时指定参数的值，只需要使用--ros-args和-p来指定就可以了
+
+在参数被设置后，要想第一时间获取参数更新并赋值给对应的属性，就需要**订阅参数设置事件**。
+
+参数是基于服务实现的，那么节点运行起来后，就会对外提供参数查询和设置等**服务**，根据这一原理，就可以编写一个服务的客户端来修改其它节点的参数。
+
