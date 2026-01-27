@@ -37,6 +37,13 @@ gazebo /ɡəˈziːbəʊ/
  
 # 2 使用URDF（Unified Robot Description Format）创建机器人
 
+## 2.1 静态创建URDF文件
+## 2.2 动态生产URDF文件
+
+ROS 2的另一个工具，使用Xacro简化URDF
+
+Xacro可以通过定义宏来复用代码，还可以进行嵌套调用
+
 
 
 
