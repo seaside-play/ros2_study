@@ -32,3 +32,8 @@
 - 使用ROS 2提供的 urdf_to_graphviz 将URDF结构进行可视化
     - 打开rviz2，使用RobotModel模块，修改资源来源Description Source为File，在Description File中选择要加载的urdf文件，最后修改Fixed Frame为base_link即可。
     - rviz2 要显示机器人模型，除了需要urdf之外，还需要通过TF输入各个部件之间的位姿关系。ROS 2，使用robot_state_publisher和joint_state_publisher将URDF文件转换为话题并将部件之间的位姿关系通过TF发布出来。
+
+
+使用urdf，xacro构建扫地机器人的模型，并使用gazebo进行仿真。在使用xacro时，先进行xacro宏定义，再据此进行组装。
+
+在launch中实现包含另一个launch文件的内容，并执行。
